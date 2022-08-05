@@ -1,0 +1,6 @@
+OR1KArch,/home/panda/Documents/etiss/coredsl_exceptions/etiss/installed/lib/plugins,OR1KArch
+RISCV,/home/panda/Documents/etiss/coredsl_exceptions/etiss/installed/lib/plugins,RISCV
+RISCV64,/home/panda/Documents/etiss/coredsl_exceptions/etiss/installed/lib/plugins,RISCV64
+RV32IMACFD,/home/panda/Documents/etiss/coredsl_exceptions/etiss/installed/lib/plugins,RV32IMACFD
+GCCJIT,/home/panda/Documents/etiss/coredsl_exceptions/etiss/installed/lib/plugins,GCCJIT
+TCCJIT,/home/panda/Documents/etiss/coredsl_exceptions/etiss/installed/lib/plugins,TCCJIT

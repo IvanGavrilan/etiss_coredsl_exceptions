@@ -2851,8 +2851,8 @@ static InstructionDefinition wfi_ (
 
 // -----------------------------------------------------------------------------
 partInit.code() += "cpu->nextPc = " + std::to_string(ic.current_address_ + 4U) + ";\n";
-partInit.code() += "cpu->exception = ETISS_RETURNCODE_CPUFINISHED;\n";
-partInit.code() += "if (cpu->return_pending) return cpu->exception;\n";
+partInit.code() += "cpu->exception = raise(cpu, system, plugin_pointers, 0U, 2U);\n";
+partInit.code() += "return cpu->exception;\n";
 // -----------------------------------------------------------------------------
 
 		partInit.getAffectedRegisters().add("instructionPointer", 32);

@@ -37,12 +37,12 @@ static InstructionDefinition mret_ (
 
 // -----------------------------------------------------------------------------
 partInit.code() += "cpu->nextPc = " + std::to_string(ic.current_address_ + 4U) + ";\n";
-partInit.code() += "*((RV32IMACFD*)cpu)->CSR[3088U] = (*((RV32IMACFD*)cpu)->CSR[768U] & 6144U) >> 11U;\n";
-partInit.code() += "*((RV32IMACFD*)cpu)->CSR[768U] = *((RV32IMACFD*)cpu)->CSR[768U] ^ (*((RV32IMACFD*)cpu)->CSR[768U] & 6144U);\n";
-partInit.code() += "*((RV32IMACFD*)cpu)->CSR[768U] = *((RV32IMACFD*)cpu)->CSR[768U] ^ ((*((RV32IMACFD*)cpu)->CSR[768U] & 128U) >> 4U) ^ (*((RV32IMACFD*)cpu)->CSR[768U] & 8U);\n";
-partInit.code() += "cpu->nextPc = *((RV32IMACFD*)cpu)->CSR[833U];\n";
-partInit.code() += "*((RV32IMACFD*)cpu)->CSR[0U] = *((RV32IMACFD*)cpu)->CSR[768U];\n";
-partInit.code() += "*((RV32IMACFD*)cpu)->CSR[256U] = *((RV32IMACFD*)cpu)->CSR[768U];\n";
+partInit.code() += "((RV32IMACFD*)cpu)->CSR_MCAUSE = 0U;\n";
+partInit.code() += "((RV32IMACFD*)cpu)->CSR_MSTATUS = (((RV32IMACFD*)cpu)->CSR_MSTATUS & -9) | ((((RV32IMACFD*)cpu)->CSR_MSTATUS & 0U) << 8U);\n";
+partInit.code() += "((RV32IMACFD*)cpu)->CSR_MSTATUS = (((RV32IMACFD*)cpu)->CSR_MSTATUS & -129) ^ 128U;\n";
+partInit.code() += "((RV32IMACFD*)cpu)->CSR_MSTATUS = (((RV32IMACFD*)cpu)->CSR_MSTATUS & -6145) | 6144U;\n";
+partInit.code() += "((RV32IMACFD*)cpu)->CSR_CPM = (((RV32IMACFD*)cpu)->CSR_MSTATUS & 6144U) >> 11U;\n";
+partInit.code() += "cpu->nextPc = ((RV32IMACFD*)cpu)->CSR_MEPC;\n";
 partInit.code() += "return cpu->exception;\n";
 // -----------------------------------------------------------------------------
 
