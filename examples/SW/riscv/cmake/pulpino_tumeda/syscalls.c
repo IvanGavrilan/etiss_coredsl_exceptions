@@ -213,7 +213,9 @@ int default_exception_handler_c(unsigned int a0, unsigned int a1, unsigned int a
     case 0x1:
         ERROR_HALT("Instruction access fault");
     case 0x2:
-        ERROR_HALT("Illegal instruction");
+        printf("exception handler\n");
+        csrw(mepc, mepc + 4);
+        break;
     case 0x4:
         ERROR_HALT("Load address misaligned");
     case 0x5:

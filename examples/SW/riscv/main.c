@@ -3,5 +3,8 @@
 
 int main()
 {
-    printf("hello world!\n");
+    printf("Program starts\n");
+    printf("Exception follows\n");
+    asm("wfi");
+    printf("Program finishes\n");
 }

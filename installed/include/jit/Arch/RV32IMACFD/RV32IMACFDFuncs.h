@@ -21,7 +21,7 @@ static inline etiss_int32 raise(ETISS_CPU * const cpu, ETISS_System * const syst
 {
 cpu->return_pending = 1;
 ((RV32IMACFD*)cpu)->CSR_MCAUSE = mcause;
-((RV32IMACFD*)cpu)->CSR_MEPC = cpu->instructionPointer + 4U;
+((RV32IMACFD*)cpu)->CSR_MEPC = cpu->instructionPointer;
 ((RV32IMACFD*)cpu)->CSR_MSTATUS = (((RV32IMACFD*)cpu)->CSR_MSTATUS & -129) | (((((RV32IMACFD*)cpu)->CSR_MSTATUS & 8U) >> 8U) << 128U);
 ((RV32IMACFD*)cpu)->CSR_MSTATUS = ((RV32IMACFD*)cpu)->CSR_MSTATUS & -9;
 ((RV32IMACFD*)cpu)->CSR_MSTATUS = ((RV32IMACFD*)cpu)->CSR_MSTATUS ^ (((RV32IMACFD*)cpu)->CSR_CPM << 11U) ^ (((RV32IMACFD*)cpu)->CSR_MSTATUS & 6144U);
